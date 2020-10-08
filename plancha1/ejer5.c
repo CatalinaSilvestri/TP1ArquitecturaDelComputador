@@ -6,7 +6,7 @@ unsigned get_line(char ** destino, int bandera){
   char * palabra = malloc(sizeof(char)*size);
   char c;
   unsigned i;
-  for (i = 0;                     //0            //1           //1
+  for (i = 0;
       (c = getchar()) != EOF && ((!bandera) || (c != '\n' && c != '\0'));//b | (a & c)
       i++){
     printf("%d ", i);
@@ -35,9 +35,20 @@ unsigned get_line(char ** destino, int bandera){
   return size;
 }
 
-void encoder(char * palabra, unsigned int size, int clave){
+int * encoder(char * palabra, unsigned int size, int clave){
+  int * codificado = malloc(sizeof(int)*size);
   for (int i = 0; i < size; i++){
-    printf("%d ", (palabra[i] ^ clave));
+    codificado[i] = (palabra[i] ^ clave);
+    printf("%d ", codificado[i]);
+    //printf("%c-", (palabra[i] ^ clave) ^ clave); 
+  }
+  printf("\n");
+  return codificado;
+}
+
+void decoder(int * palabra, unsigned int size, int clave){
+  for (int i = 0; i < size; i++){
+    printf("%c", (palabra[i] ^ clave));
     //printf("%c-", (palabra[i] ^ clave) ^ clave); 
   }
   printf("\n");
@@ -49,7 +60,10 @@ int main(int argc, char ** argv){
     char * linea;
     printf("%d\n", argc);
     unsigned n = get_line(&linea, argc <= 2);
-    encoder(linea, n, atoi(argv[1]));
+    int * enCodigo = encoder(linea, n, atoi(argv[1]));
+    free(linea);
+    decoder(enCodigo, n, atoi(argv[1]));
+    free(enCodigo);
   }
 
   return 0;
