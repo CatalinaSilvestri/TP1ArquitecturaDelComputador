@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void printbin(unsigned int n){
-  unsigned size = 31;//sizeof(n);
+void printbin(long unsigned int n){
+  unsigned size = 63;//sizeof(n);
   for (int i = size; i >= 0; i--){
      //printf("%d ", n & 1);
      //n = n >> 1;
@@ -13,6 +13,6 @@ void printbin(unsigned int n){
 }
 
 int main (){
-  printbin(1);
+  printbin(-2);
   return 0;
 }
