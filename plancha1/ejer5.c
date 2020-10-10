@@ -1,22 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-unsigned get_line(char ** destino, int bandera){
+unsigned encoder(char ** destino, char clave){
   unsigned size = 50; //espacio inicial
   char * palabra = malloc(sizeof(char)*size);
   char c;
   unsigned i;
   for (i = 0;
-      (c = getchar()) != EOF && ((!bandera) || (c != '\n' && c != '\0'));//b | (a & c)
+      (c = getchar()) != EOF && c != '\n' && c != '\0';
       i++){
-    printf("%d ", i);
     //Mas espacio
     if (i >= size){
       size += 10;
       palabra = realloc(palabra, sizeof(char) * size);
     }
     //Asignar
-    palabra[i] = c;
+    palabra[i] = c ^ clave;
   }
   //Final de la linea
   if (i > size){
@@ -31,39 +30,27 @@ unsigned get_line(char ** destino, int bandera){
   }
   //Salida
   * destino = palabra;
-  printf("\n");
   return size;
-}
-
-int * encoder(char * palabra, unsigned int size, int clave){
-  int * codificado = malloc(sizeof(int)*size);
-  for (int i = 0; i < size; i++){
-    codificado[i] = (palabra[i] ^ clave);
-    printf("%d ", codificado[i]);
-    //printf("%c-", (palabra[i] ^ clave) ^ clave); 
-  }
-  printf("\n");
-  return codificado;
-}
-
-void decoder(int * palabra, unsigned int size, int clave){
-  for (int i = 0; i < size; i++){
-    printf("%c", (palabra[i] ^ clave));
-    //printf("%c-", (palabra[i] ^ clave) ^ clave); 
-  }
-  printf("\n");
 }
 
 int main(int argc, char ** argv){
   char * linea;
   if (argc >= 2){
+    //Obtenemos llave para codificar/decodificar
+    char llave = atoi(argv[1]);
+    //Leemos y codificamos
     char * linea;
-    printf("%d\n", argc);
-    unsigned n = get_line(&linea, argc <= 2);
-    int * enCodigo = encoder(linea, n, atoi(argv[1]));
+    unsigned n = encoder(&linea, llave);
+    //Imprimir palabra codificada
+    for (int i = 0; i < n; i++)
+      printf("%c", linea[i]);
+    printf("\n");
+    //Decodificar e imprimir palabra
+    for (int i = 0; i < n; i++)
+      printf("%c", linea[i] ^ llave);
+    printf("\n");
+    //libera memoria de la palabra
     free(linea);
-    decoder(enCodigo, n, atoi(argv[1]));
-    free(enCodigo);
   }
 
   return 0;
