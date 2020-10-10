@@ -1,15 +1,5 @@
 #include <stdio.h>
 
-/*
-a ^ b = c
-c ^ b = a
-me escuchas?
-c = a ^ b
-
-b ^ a = b
-b ^ a = a
-b ^ a = b
-*/
 void swap3 (int * a, int * b, int * c){
   //swap a <-> b
   *b = *b ^ *a;
