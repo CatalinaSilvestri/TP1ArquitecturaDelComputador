@@ -42,10 +42,12 @@ int main(int argc, char ** argv){
     char * linea;
     unsigned n = encoder(&linea, llave);
     //Imprimir palabra codificada
+    printf("Codificacion: ");
     for (int i = 0; i < n; i++)
       printf("%c", linea[i]);
     printf("\n");
     //Decodificar e imprimir palabra
+    printf("Decodificacion: ");
     for (int i = 0; i < n; i++)
       printf("%c", linea[i] ^ llave);
     printf("\n");
@@ -55,3 +57,16 @@ int main(int argc, char ** argv){
 
   return 0;
 }
+
+/*
++Se gana algo si codificamos mas de una vez?
+  Podemos ver que se genera el siguiente comporamiento al encriptar una misma
+  palabra con distintos numeros:
+  Mostraremos el caso con tres numeros distintos, aunque por propiedad asociativa, 
+  vale para dos o mas iteraciones:
+
+  (((palabra ^ a) ^ b) ^ c) = palabra ^ (a ^ b ^ c) y (a ^ b ^ c) 
+
+  tambien es un numero con el que podemos encriptar en un primer lugar
+  
+*/

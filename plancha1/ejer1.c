@@ -7,6 +7,8 @@ int main(){
   int d = (0xAA | (0xAA << 24));
   int e = (5 << 8);
   int f = (-1 & (~ (1 << 8)));
+  int g = 0 - 1; 
+  int h = (0x80000000) + (0x80000000);
 
   if (a == (0b10000000000000000000000000000000))
     printf("Son iguales -> a\n");
@@ -20,6 +22,10 @@ int main(){
     printf("Son iguales -> e\n");
   if (f == (0b11111111111111111111111011111111))
     printf("Son iguales -> f\n");
+  if (g == (0b11111111111111111111111111111111))
+    printf("Son iguales -> g\n");
+  if (h == (0b00000000000000000000000000000000))
+    printf("Son iguales -> h\n");
 
   return 0;
 }
