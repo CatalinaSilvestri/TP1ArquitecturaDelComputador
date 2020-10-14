@@ -1,5 +1,4 @@
-E_FLAGS = -Wall -Wextra -Werror -g
-FLAGS = -g
+FLAGS = -Wall -Wextra -Werror -g
 
 programa: ejer1 ejer3 ejer4 ejer5
 
@@ -20,9 +19,42 @@ ejer1_b : ejer1_b.c
 #Ejercicio 2:
 	#No es necesario compilarlo
 
-ejer3 : ejer3.c
-	gcc -o ejer3 -g ejer3.c
+#Ejercicio 3
+ejer3 : ejer3_a ejer3_b ejer3_c ejer3_d ejer3_e ejer3_f ejer3_g ejer3_h
 
+#Apartado A
+ejer3_a : ejer3_a.s
+	gcc -o ejer3_a -g ejer3_a.s
+
+#Apartado B
+ejer3_b : ejer3_b.s
+	gcc -o ejer3_b -g ejer3_b.s
+
+#Apartado C
+ejer3_c : ejer3_c.s
+	gcc -o ejer3_c -g ejer3_c.s
+
+#Apartado D
+ejer3_d : ejer3_d.s
+	gcc -o ejer3_d -g ejer3_d.s
+
+#Apartado E
+ejer3_e : ejer3_e.s
+	gcc -o ejer3_e -g ejer3_e.s
+
+#Apartado F
+ejer3_f : ejer3_f.s
+	gcc -o ejer3_f -g ejer3_f.s
+
+#Apartado G
+ejer3_g : ejer3_g.s
+	gcc -o ejer3_g -g ejer3_g.s
+
+#Apartado H
+ejer3_h : ejer3_h.s
+	gcc -o ejer3_h -g ejer3_h.s
 
 clear :
-	rm ejer1_a ejer1_a.s ejer1_b ejer1_b.s ejer3 ejer4
+	rm -f ejer1_a ejer1_a.s ejer1_b ejer1_b.s
+	rm -f ejer3_a ejer3_b ejer3_c ejer3_d ejer3_e ejer3_f ejer3_g ejer3_h
+	rm -f ejer4
