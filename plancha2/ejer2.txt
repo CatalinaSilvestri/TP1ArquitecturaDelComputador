@@ -1,6 +1,5 @@
 A continuacion enunciaremos dos metodos distintos para imprimir la salida
-de un programa en c o en ensamblador compilando el programa de la manera
-elegida:
+de un programa en c compilando el programa de la manera elegida:
 
   +Usando en consula el comando "echo $?" 
   +Utilizando GDB inspeccionando el contenido del registro ax, 
