@@ -1,0 +1,8 @@
+A continuacion enunciaremos dos metodos distintos para imprimir la salida
+de un programa en c o en ensamblador compilando el programa de la manera
+elegida:
+
+  +Usando en consula el comando "echo $?" 
+  +Utilizando GDB inspeccionando el contenido del registro ax, 
+    adaptando al tamanio de bits esperado. Para 64 bits seria: 
+    i r rax
