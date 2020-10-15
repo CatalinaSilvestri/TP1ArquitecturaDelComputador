@@ -1,0 +1,2 @@
+Solo se puedenutilizar GDB pues "echo $?" tiene la limiticion de poder mostrar
+mas de un byte.
