@@ -1,6 +1,6 @@
 FLAGS = -Wall -Wextra -Werror -g
 
-programa: ejer1 ejer3 ejer4 ejer5
+programa: ejer1 ejer3 ejer4
 
 #Eercicio 1
 
