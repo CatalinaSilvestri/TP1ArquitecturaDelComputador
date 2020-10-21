@@ -49,7 +49,7 @@ main:
 
   # Parte (g)
   movq $formato, %rdi
-  movq i, %rsi
+  movq $i, %rsi
   xorq %rax, %rax
   call printf 
 
