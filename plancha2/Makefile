@@ -83,4 +83,5 @@ clear :
 	rm -f ejer4
 	rm -f ejer6
 	rm -f ejer7
+	rm -f ejer8_a ejer8_b
 
