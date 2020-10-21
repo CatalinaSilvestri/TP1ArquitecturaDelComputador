@@ -1,6 +1,6 @@
 FLAGS = -Wall -Wextra -Werror -g
 
-programa: ejer1 ejer3 ejer4 ejer 6
+programa: ejer1 ejer3 ejer4 ejer6 ejer7 ejer8
 
 #Eercicio 1
 
@@ -54,14 +54,33 @@ ejer3_g : ejer3_g.s
 ejer3_h : ejer3_h.s
 	gcc -o ejer3_h -g ejer3_h.s
 
+#Ejercicio 4:
 ejer4 : ejer4.s
 	gcc -o ejer4 -g ejer4.s
 
+#Ejercicio 6:
 ejer6 : ejer6.s
 	gcc -o ejer6 -g ejer6.s -no-pie
+
+#Ejercicio 7:
+ejer7 : ejer7.s 
+	gcc -o ejer7 -g ejer7.s
+
+#Ejercicio 8:
+ejer8: ejer8_a ejer8_b
+
+#Apartado A
+ejer8_a : ejer8_a.s 
+	gcc -o ejer8_a -g ejer8_a.s
+
+#Apartado B
+ejer8_b : ejer8_b.s 
+	gcc -o ejer8_b -g ejer8_b.s
 
 clear :
 	rm -f ejer1_a ejer1_a.s ejer1_b ejer1_b.s
 	rm -f ejer3_a ejer3_b ejer3_c ejer3_d ejer3_e ejer3_f ejer3_g ejer3_h
 	rm -f ejer4
 	rm -f ejer6
+	rm -f ejer7
+
