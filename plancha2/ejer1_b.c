@@ -1,5 +1,5 @@
 int main(){
-    int a,b;
+    char a,b;
     a = (0xFE);
     b = -1;
     a += b;
