@@ -63,19 +63,26 @@ ejer6 : ejer6.s
 	gcc -o ejer6 -g ejer6.s -no-pie
 
 #Ejercicio 7:
-ejer7 : ejer7.s 
-	gcc -o ejer7 -g ejer7.s
+ejer7 : ejer7_a ejer7_b
+
+#Apartado A
+ejer7_a : ejer7_a.s 
+	gcc -o ejer7_a -g ejer7_a.s
+
+#Apartado B
+ejer7_b : ejer7_b.s 
+	gcc -o ejer7_b -g ejer7_b.s
 
 #Ejercicio 8:
 ejer8: ejer8_a ejer8_b
 
 #Apartado A
 ejer8_a : ejer8_a.s 
-	gcc -o ejer8_a -g ejer8_a.s
+	gcc -o ejer8_a -g ejer8_a.s -no-pie
 
 #Apartado B
 ejer8_b : ejer8_b.s 
-	gcc -o ejer8_b -g ejer8_b.s
+	gcc -o ejer8_b -g ejer8_b.s -no-pie
 
 clear :
 	rm -f ejer1_a ejer1_a.s ejer1_b ejer1_b.s
@@ -85,3 +92,6 @@ clear :
 	rm -f ejer7
 	rm -f ejer8_a ejer8_b
 
+git_info :
+	@echo git del proyecto:
+	@echo      https://github.com/CatalinaSilvestri/TP1ArquitecturaDelComputador
