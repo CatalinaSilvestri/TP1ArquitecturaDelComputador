@@ -89,7 +89,7 @@ clear :
 	rm -f ejer3_a ejer3_b ejer3_c ejer3_d ejer3_e ejer3_f ejer3_g ejer3_h
 	rm -f ejer4
 	rm -f ejer6
-	rm -f ejer7
+	rm -f ejer7_a ejer7_b
 	rm -f ejer8_a ejer8_b
 
 git_info :
