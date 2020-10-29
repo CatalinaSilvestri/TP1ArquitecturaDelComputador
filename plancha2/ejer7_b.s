@@ -20,6 +20,6 @@ main:
 
   final:
     xorq %rax, %rax
-    movb %dl, %al	#retornar 1's contados
+    movb %dl, %al
     ret
   
