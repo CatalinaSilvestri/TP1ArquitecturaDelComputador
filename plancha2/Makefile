@@ -58,6 +58,17 @@ ejer3_h : ejer3_h.s
 ejer4 : ejer4.s
 	gcc -o ejer4 -g ejer4.s
 
+#Ejercicio 5:
+ejer5 : ejer5_fact1 ejer5_fact2
+
+#Funcion fact1
+ejer5_fact1 : ejer5_fact1.s
+	gcc -o ejer5_fact1 -g ejer5_fact1.s
+
+#Funcion fact2
+ejer5_fact2 : ejer5_fact2.s
+	gcc -o ejer5_fact2 -g ejer5_fact2.s
+	
 #Ejercicio 6:
 ejer6 : ejer6.s
 	gcc -o ejer6 -g ejer6.s -no-pie
@@ -88,9 +99,13 @@ clear :
 	rm -f ejer1_a ejer1_a.s ejer1_b ejer1_b.s
 	rm -f ejer3_a ejer3_b ejer3_c ejer3_d ejer3_e ejer3_f ejer3_g ejer3_h
 	rm -f ejer4
+	rm -f ejer5_fact1
+	rm -f ejer5_fact2
 	rm -f ejer6
 	rm -f ejer7_a ejer7_b
 	rm -f ejer8_a ejer8_b
+	rm -f ejer9
+	
 
 git_info :
 	@echo git del proyecto:
