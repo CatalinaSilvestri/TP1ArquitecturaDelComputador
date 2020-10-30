@@ -59,15 +59,8 @@ ejer4 : ejer4.s
 	gcc -o ejer4 -g ejer4.s
 
 #Ejercicio 5:
-ejer5 : ejer5_fact1 ejer5_fact2
-
-#Funcion fact1
-ejer5_fact1 : ejer5_fact1.s
-	gcc -o ejer5_fact1 -g ejer5_fact1.s
-
-#Funcion fact2
-ejer5_fact2 : ejer5_fact2.s
-	gcc -o ejer5_fact2 -g ejer5_fact2.s
+ejer5 : ejer5.s ejer5.c
+	gcc -o ejer5 ejer5.s ejer5.c -g
 	
 #Ejercicio 6:
 ejer6 : ejer6.s
