@@ -1,9 +1,6 @@
-.data
-  format: formato: .asciz "%ld\n"
-
 .text
 
-.global set_jump2
+.global set_jump2     #Setea un salto
 set_jump2:
 
   #Salvando registros "callee safe"
@@ -26,29 +23,20 @@ set_jump2:
   
   movq %rax, 72(%rdi)  #Estado del salto inicial
 
-  movq $format, %rdi
-  movq $125, %rsi
-  xorq %rax, %rax
-
-  call printf
-
-  xorq %rax, %rax
-
   ret 
 
-.global long_jump2
+.global long_jump2    #Restaura la el estado reservado
 long_jump2:
 
   #restaurando registros
   
   movq  8(%rdi), %rbp  #rpb
 
-  movq 16(%rdi), %rax           #temp
-  movq %rax, (%rsp)           #temp
-  #movq -16(%rdi), %rsp  #rsp
+  movq 16(%rdi), %rax           
+  movq %rax, (%rsp)    #rsp
   
   #Proposito general "callee safe"
-  movq    (%rdi), %rbx  #rbp
+  movq   (%rdi), %rbx  #rbp
   movq 24(%rdi), %r10  #r10
   movq 32(%rdi), %r11  #r11
   movq 40(%rdi), %r12  #r12
