@@ -4,7 +4,6 @@
 #include <time.h>
 
 void rand_float(float * a, int cant){
-  //time_t t;
   float n,m;
   for (int i = 0; i < cant; i++){
     n = (float) random();
@@ -16,23 +15,35 @@ void rand_float(float * a, int cant){
   }
 }
 
+void copy(float *a, float *b, int len){
+  for (int i = 0; i < len; i++)
+    b[i] = a[i];
+}
 
 void sum(float *a, float *b, int len);
 
+void sum_simd(float *a, float *b, int len);
+
 int main(){
+    time_t start, finish;
     srand(time(NULL));
-    int len = 3;
-    float a[len], b[len];
+    int len = 10000;
+
+    float a[len], b[len], c[len];
 
     rand_float(a, len);
+    copy(a,c, len);
     rand_float(b, len);
 
-    for(int i=0; i<len; i++)
-        printf("a[%d]: %f, b[%d]: %f\n", i, a[i], i, b[i]);
-
+    start = clock();
     sum(a, b, len);
-    for(int i=0; i<len; i++)
-        printf("a[%d]: %f\n", i, a[i]);
+    finish = clock();
+    printf("Tiempo sumas simples: %lf;", difftime(finish, start));
 
+    start = clock();
+    sum_simd(c, b, len);
+    finish = clock();
+    printf("Tiempo sumas paquetes: %lf\n", difftime(finish, start));
+    
     return 0;
 }

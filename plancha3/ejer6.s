@@ -7,7 +7,7 @@
     movq $0, %rax
     cvtsi2ssq %rax, %xmm9
 
-    #Verifico que a lo sumo alla un 0 por ecuacion.
+    #Verifico que a lo sumo haya un 0 por ecuacion.
     primera_cond:
       ucomiss %xmm9,%xmm0
       jnz segunda_cond

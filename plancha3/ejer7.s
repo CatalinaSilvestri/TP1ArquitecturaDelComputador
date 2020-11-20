@@ -1,7 +1,7 @@
 .text
 .global sum
 
-# a_i = a_i + b_i
+
 sum:
     xorq %rcx, %rcx
     while:
