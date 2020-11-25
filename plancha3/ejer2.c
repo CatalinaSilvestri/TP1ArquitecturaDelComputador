@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <math.h>
 
-
-
 #define EXP(x) ((* (int *) (&x) >> 23) & 0xff)
 #define FRAC(x) ((* (int *) (&x)) & 0xffffff)
 
@@ -13,17 +11,17 @@ int myIsNaN(float f){
 
 //Apartado b
 int myIsNaN2(float f){
-  float g = NAN;
-  int m,n;
+  int m;
   m = (* (int *) (&f));
-  n = (* (int *) (&g));
-  printf("%d - %d = %d\n", m, n, m - n);
-  return 0 >= m - n;
+  //printf("%d - %d = %d\n", m, n, m - n);
+  if (m < 0)
+    return 0 <= m - 0xFF800000;
+  return 0 <= m - 0x7F800000;
 }
 
 
 int main(void){
-  float g = 1.0;
+  float g = 0.0;
   float f = 0.0 / g;
   printf("f: %f\n", f);
   // ADVERTENCIA: ‘NaN’ es una extension de GCC.
