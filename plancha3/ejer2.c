@@ -11,12 +11,7 @@ int myIsNaN(float f){
 
 //Apartado b
 int myIsNaN2(float f){
-  int m;
-  m = (* (int *) (&f));
-  //printf("%d - %d = %d\n", m, n, m - n);
-  if (m < 0)
-    return 0 <= m - 0xFF800000;
-  return 0 <= m - 0x7F800000;
+  return !(f == f);
 }
 
 
