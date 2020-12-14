@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include <ieee754.h>
+#include <math.h>
 
 #define EXP(x) ((* (int *) (&x) >> 23) & 0xff)
-#define FRAC(x) ((* (int *) (&x)) & 0xffffff)
+#define FRAC(x) ((* (int *) (&x)) & 0x1FFFFF)
 
 int main (){
-  float f = 3.14;
+  float f = 4.25;
 
   union ieee754_float u;
   u.f = f; 
