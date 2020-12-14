@@ -1,0 +1,33 @@
+Ejer 1:
+1. Lectura, 0-430   -> mem fisica = 670
+2. Escritura, 0-150 -> Violacion de seguridad
+3. Lectura, 1-15    -> mem fisica = 2315
+4. Escritura, 2-130 -> desplazamiento fuera de rango
+5. Ejecución, 4-25  -> segmento faltante
+
+Ejer2:
+1.el proceso A consume 34 paginas
+  el proceso B consume 24 paginas
+
+2. el proceso A tiene una perdida de 52 bytes por fragmentacion interna
+   el proceso B tiene una perdida de 4 bytes por fragmentacion interna.
+
+  En nunguno de los dos casos hay fragmentacion externa, la cual solo se da en los casos
+  para los cuales la memoria se usa de modo segmentado.
+
+3. _ _ _ _ _ _ _ _ _ # # # # # # # -> 2^9 * 8 = 4096
+  De los 16 bits de la direccion de la direccion 9 bits corresponden al numero de paginas(_)
+  y los 7 restantes corresponden al offset(#).
+  De los 9 bits para el numero de pagina esto nos da que hay 2^9 paginas, por lo que si cada direccion
+  ocupa 8 bytes la tabla completa terminaria pesando 4096 bytes.
+
+Ejer 3:
+La pseudo-instruccion LDR rd, =etiqueta puede cargar cualquier valor numerico de 32 bits
+a un registro a traves de transformarla de alguna de las siguientes maneras:
+    + Ubicando la direccion de la etiqueta en una porcion de memoria embebida en el codigo
+    para mantener valores constante (un pool literal).
+    + Generando una instruccion LDR relativa al contador de programa, que lee la direccion
+    del pool literal
+
+Fuente:
+  https://www.keil.com/support/man/docs/armasm/armasm_dom1359731149945.htm
